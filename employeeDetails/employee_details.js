@@ -1,9 +1,16 @@
 const employees = [
-      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 },
-      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000 },
-      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 },
+      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 ,specialization:'javascript'},
+      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000,specialization:'python' },
+      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 ,specialization:'java'}
       //... More employee records can be added here
     ];
+
+    function findBySpecialization(){
+      const spEmployee=employees.map((employee,index)=>`<p>${employee.id}-${employee.department}-${employee.age}-${employee.salary}-${employee.name}-${employee.specialization}:</p>`);
+      const foundEmployee=employees.filter((employee,index)=>employee.specialization==='python');
+      const displayEmployee=foundEmployee.map((employee,index)=>`<p>${employee.id}-${employee.department}-${employee.age}-${employee.salary}-${employee.name}-${employee.specialization}:</p>`);
+      document.getElementById('employeesDetails').innerHTML=displayEmployee;
+    }
 function displayEmployees(){
         const totalEmployees=employees.map((employee,index)=>`<p>${employee.id}: ${employee.name}: ${employee.age}: ${employee.salary}: ${employee.department}</p>`).join('');
 
